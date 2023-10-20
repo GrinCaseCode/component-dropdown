@@ -25,13 +25,11 @@ $(document).ready(function() {
 		} else {
 			$(this).parent().parent().parent().parent().siblings(".list-selected").find("li[data-title='"+textCheckbox+"']").remove();
 		}
-
 		if($('.item-checkbox input').is(':checked')){
 			$(".numbers-filter").addClass("active");
 		} else {
 			$(".numbers-filter").removeClass("active");
 		}
-
 		$('.remove-selected').click(function() {
 			$(this).parent().parent().siblings(".list-filter").find("input[name='"+textCheckbox+"']").prop( "checked", false );
 			$(this).parent().remove();
@@ -41,6 +39,11 @@ $(document).ready(function() {
 	$(document).on("click", '.remove-selected', function() {
 		var numbersCheckbox = $('.item-filter input:checkbox:checked').length;
 		$(".numbers-filter").html(numbersCheckbox);
+		if($('.item-checkbox input').is(':checked')){
+			$(".numbers-filter").addClass("active");
+		} else {
+			$(".numbers-filter").removeClass("active");
+		}
 	});
 	
 });
